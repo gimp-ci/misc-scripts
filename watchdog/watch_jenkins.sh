@@ -80,10 +80,12 @@ if ${runRepair}; then
   case ${repairExitCode} in
     2)
       /etc/init.d/jenkins start
+      echo "$(date) watchdog started jenkins because jenkins not started"
       RESULT=$?
     ;;
     3)
       /etc/init.d/jenkins restart
+      echo "$(date) watchdog restarted jenkins because frontend not healthy"
       RESULT=$?
     ;;
   esac
